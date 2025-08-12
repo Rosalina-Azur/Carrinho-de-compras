@@ -1,31 +1,61 @@
-let total;
+let totalGeral;
 limpar();
 
-function adicionar() {
 
-    
+function adicionar() {
     let produto = document.getElementById('produto').value;
-    let nomeProduto = produto.split('-')[0];
-    let valorProduto = produto.split('R$')[1];
     let quantidade = document.getElementById('quantidade').value;
 
-    let preço = quantidade * valorProduto;
+
+    if (!produto || produto.trim() === "") {
+        alert("Selecione um produto válido.");
+        return;
+    }
+
+
+    if (isNaN(quantidade) || quantidade <= 0) {
+        alert("Insira uma quantidade válida.");
+        return;
+    }
+
+
+    let nomeProduto = produto.split('-')[0];
+    let valorUnitario = parseFloat(produto.split('R$')[1]);
+    let preco = quantidade * valorUnitario;
+
 
     let carrinho = document.getElementById('lista-produtos');
+    carrinho.innerHTML = carrinho.innerHTML + `<section class="carrinho__produtos__produto">
+    <span class="texto-azul">${quantidade}x</span> ${nomeProduto} <span class="texto-azul">R${preco}</span>
+  </section>`;
 
-    carrinho.innerHTML = carrinho.innerHTML + ` <section class="carrinho__produtos__produto">
-          <span class="texto-azul">${quantidade}</span> ${nomeProduto} <span class="texto-azul">R$${preço}</span>
-        </section>`;
-        
-    total = total + preço;
 
-    let totalCarrinho = document.getElementById('valor-total');
-    totalCarrinho.innerHTML = `R$${total}`;
-    document.getElementById('quantidade').value = '0';
-
+    totalGeral = totalGeral + preco;
+    let campoTotal = document.getElementById('valor-total');
+    campoTotal.textContent = `R$ ${totalGeral}`;
+    document.getElementById('quantidade').value = 0;
 }
+
+
+
+
 function limpar() {
-    total = 0;
+    totalGeral = 0;
     document.getElementById('lista-produtos').innerHTML = '';
     document.getElementById('valor-total').textContent = 'R$0';
 }
+
+function capturarValores() {
+    const nome = document.getElementById('campoNome').value;
+    const idade = document.getElementById('campoIdade').value;
+
+ document.getElementById('mostraNome').textContent = `Nome: ${nome}, Idade: ${idade}`;
+    console.log(`Nome: ${nome}, Idade: ${idade}`);
+}
+
+function modificarConteudo() {
+    const paragrafo = document.getElementById('meuParagrafo');
+    paragrafo.textContent = 'Novo texto modificado dinamicamente!';
+}
+
+
