@@ -77,25 +77,17 @@
 <html>
 <body>
 <form id="meuForm">
-    <label for="campoNome">Nome:</label>
-    <input type="text" id="campoNome" name="nome">
+    <label for="campoNome" style="float: left; margin-right: 10px;" >Nome:</label>
+    <input type="text" id="campoNome" name="nome" style="float: left; margin-right: 10px;" />
     
-    <label for="campoIdade">Idade:</label>
-    <input type="text" id="campoIdade" name="idade">
-    <button onclick="capturarValores()" type="button" class="botao-pequeno botao-capturar">Capturar Valores</button>
+    <label for="campoIdade" style="float: left; margin-right: 10px;" >Idade:</label>
+   <input type="text" id="campoIdade" name="idade" style="float: left; margin-right: 10px;" />
+    <button onclick="capturarValores()" type="button" class="botao-pequeno botao-capturar" style="float: left;">Capturar Valores</button>
     
-  <div id='mostraNome'><span>Seu nome e idade irão aparecer aqui.</span></div>
+  <div id='mostraNome' style="clear: both;"><span>Seu nome e idade irão aparecer aqui.</span></div>
 </form>
 
 <script src="script.js"></script>
 </body>
 </html>
 
-<html>
-    <body>
-<p id="meuParagrafo">Texto original</p>
-<button onclick="modificarConteudo()">Modificar Conteúdo</button>
-
-<script src="script.js"></script>
-  </body>
-</html>
